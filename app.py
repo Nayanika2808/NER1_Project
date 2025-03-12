@@ -1,15 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import spacy
-import subprocess
+import os
 
 app = Flask(__name__)
 
-# Ensure the model is installed
-try:
-    nlp = spacy.load("en_core_web_sm")
-except OSError:
-    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
-    nlp = spacy.load("en_core_web_sm")
+# Load the pre-trained NER model
+nlp = spacy.load("en_core_web_sm")
 
 @app.route("/")
 def index():
@@ -27,4 +23,3 @@ def ner():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
