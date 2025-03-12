@@ -1,29 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NER Web App</title>
-    <script>
-        async function extractEntities() {
-            let text = document.getElementById("textInput").value;
-            let response = await fetch("/ner", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ text: text }),
-            });
-            let data = await response.json();
-            document.getElementById("result").innerText = JSON.stringify(data.entities, null, 2);
-        }
-    </script>
+    <title>Named Entity Recognition (NER) Web App</title>
 </head>
 <body>
     <h1>Named Entity Recognition (NER) Web App</h1>
-    <textarea id="textInput" rows="4" cols="50" placeholder="Enter text here..."></textarea>
+    <textarea id="inputText" rows="4" cols="80"></textarea>
     <br>
     <button onclick="extractEntities()">Extract Entities</button>
+    
+    <h2>Masked Output:</h2>
+    <p id="maskedText"></p>
+
     <h2>Entities:</h2>
-    <pre id="result"></pre>
+    <pre id="output"></pre>
+
+    <script>
+        function extractEntities() {
+            let text = document.getElementById("inputText").value;
+
+            fetch("/ner", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ text: text })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("maskedText").textContent = data.masked_text; // Display masked text
+                document.getElementById("output").textContent = JSON.stringify(data.entities, null, 2);
+            });
+        }
+    </script>
 </body>
 </html>
+
 
