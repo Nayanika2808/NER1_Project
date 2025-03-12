@@ -1,7 +1,10 @@
-Named Entity Recognition (NER) Project - Entity Masking                                       Group No. - 114 
-                                                                                                        Nayanika Singh(2023ab05203)
-                                                                                                        Poorvi Jayant(2023ab05204)
-                                                                                                        Ujjayan Roy(2023ab05205)
+Named Entity Recognition (NER) Project - Entity Masking                                      
+
+Group No. - 114 
+               Nayanika Singh(2023ab05203)
+               Poorvi Jayant(2023ab05204)
+               Ujjayan Roy(2023ab05205)
+               
  Project Overview
 This project is built to extract and mask sensitive Named Entities (like phone numbers, emails, user IDs, and URLs) from a given text document using **Named Entity Recognition (NER)**. 
 
