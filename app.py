@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import spacy
 import os
-import re  # Import regex for custom entity detection
+import re  
 
 app = Flask(__name__)
 
@@ -9,18 +9,10 @@ app = Flask(__name__)
 nlp = spacy.load("en_core_web_sm")
 
 def mask_sensitive_info(text):
-    """
-    Function to mask phone numbers, emails, and URLs in the input text.
-    """
-    # Mask phone numbers (10+ digits)
-    text = re.sub(r'\b\d{10,}\b', 'xxxxxxxxxx', text)
-
-    # Mask emails
-    text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', 'xxxxxxxx@xxxxx.com', text)
-
-    # Mask URLs
-    text = re.sub(r'\bhttps?://\S+\b', 'xxxxx', text)
-
+    """Mask phone numbers, emails, and URLs."""
+    text = re.sub(r'\b\d{10,}\b', 'xxxxxxxxxx', text)  # Mask phone numbers
+    text = re.sub(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b', 'xxxxxxxx@xxxxx.com', text)  # Mask emails
+    text = re.sub(r'\bhttps?://\S+\b', 'xxxxx', text)  # Mask URLs
     return text
 
 @app.route("/")
