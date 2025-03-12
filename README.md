@@ -105,5 +105,7 @@ POST /ner
 Screenshot:
 
 ![image](https://github.com/user-attachments/assets/6c6be102-e831-4bc6-9955-189ea809b62d)
+![image](https://github.com/user-attachments/assets/92089ec9-d628-4b85-a911-1365c7f8ee47)
+
 
 
