@@ -76,3 +76,31 @@ Follow these steps to run the project on your local machine:
 ```bash
 git clone https://github.com/Nayanika2808/NER1_Project.git
 cd NER1_Project
+
+# Named Entity Recognition (NER) Web Application  
+
+This is a Flask-based Named Entity Recognition (NER) web application that identifies and masks entities like phone numbers, emails, user IDs, and URLs from input text using `spaCy`.  
+
+## 🚀 Live Demo  
+[Click here to access the application](https://ner1-project.onrender.com)  
+
+## 📌 Features  
+- Detects and masks sensitive information (emails, phone numbers, etc.).  
+- Uses `spaCy` for Named Entity Recognition (NER).  
+- Simple and interactive web interface.  
+- REST API support for programmatic access.  
+
+## 🔹 How to Use  
+1. Open the **[Live Demo](https://ner1-project.onrender.com)** link in your browser.  
+2. Enter any text containing emails, phone numbers, or other entities.  
+3. Click the **Submit** button to see the masked output.  
+
+## 🛠 API Usage  
+The NER model also supports API-based usage:  
+
+**Endpoint:**  
+```http
+POST /ner
+
+![image](https://github.com/user-attachments/assets/a3235721-f9df-4cb8-8f95-dd15444b2943)
+
